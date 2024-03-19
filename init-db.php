@@ -7,7 +7,7 @@ $dbname = $config['db_name'];
 $password = $config['password'];
 $username = $config['username'];
 // Crear conexión
-$conn = new mysqli($host, $username, $password);
+$conn = new mysqli($host, $username, $password, port:3306);
 
 // Verificar conexión
 if ($conn->connect_error) {
@@ -15,8 +15,12 @@ if ($conn->connect_error) {
 }
 
 // Intentar seleccionar la base de datos
-if (!$conn->select_db($dbname)) {
-    // Si no se puede seleccionar, intentamos crearla
+try{
+    if (!$conn->select_db($dbname)) {
+        // Si no se puede seleccionar, intentamos crearla
+        echo "Conexión a la base de datos existente\n";
+    }
+} catch ( \Exception $e ) {
     $sql = "CREATE DATABASE IF NOT EXISTS $dbname";
     if ($conn->query($sql) === TRUE) {
         echo "Base de datos creada exitosamente\n";
@@ -34,7 +38,7 @@ if (!$conn->select_db($dbname)) {
                 humedad VARCHAR(255),
                 viento VARCHAR(255),
                 descripcion VARCHAR(255),
-				url VARCHAR(255)
+                url VARCHAR(255)
             )"
         ];
 
@@ -49,9 +53,8 @@ if (!$conn->select_db($dbname)) {
     } else {
         echo "Error al crear la base de datos: " . $conn->error;
     }
-} else {
-    echo "Conexión a la base de datos existente\n";
 }
+
 
 // Aquí puedes incluir la lógica para procesar los datos de clima recibidos
 
