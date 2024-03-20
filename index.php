@@ -9,12 +9,23 @@ $user = $config['username'];
 $port = $config['port'];
 
 //Conectate a la db!
+try{
+	$conn = new mysqli($host, $user, $password, $dbname);
+	$results = $conn->query("SELECT * FROM clima");
+
+	//Recibimos los datos de clima como array de objetos
+	$datosClima = [];
+
+	while($row = $results->fetch_object()) {
+		array_push($datosClima, $row);
+	}
+
+	$conn->close();
+} catch(Exception $e) {
+    die('Error : ('. $conn->connect_errno .') '. $conn->connect_error);
+}
 
 
-
-//Recibimos los datos de clima como array de objetos
-
-$datosClima = [];
 
 
 ?>
@@ -69,7 +80,7 @@ $datosClima = [];
 
 	<script>
 	//Recibimos los datos desde php
-	var datosClima = []
+	var datosClima = <?= json_encode($datosClima) ?>; 
 	
 	// Inicializar el mapa
 	var mymap = L.map('mapid').setView([40.416775, -3.703790], 13);
@@ -79,12 +90,19 @@ $datosClima = [];
 		maxZoom: 19,
 	}).addTo(mymap);
 
+	
+
 	// Función para mostrar los datos en el mapa
 	datosClima.forEach(function(dato) {
 		//Creamos marcadores en el mapa
 		var marker = L.marker([dato.lat, dato.lon]).addTo(mymap);
-		
+
+		var customPopup = "Temperatura: TEMP_PLACEHOLDER ºC <br> Humedad: HUM_PLACEHOLDER % <br> Velocidad del viento: VVIEN_PLACEHOLDER km/h <br>"
+		customPopup.replace("TEMP_PLACEHOLDER", dato.temperatura)
+		customPopup.replace("HUM_PLACEHOLDER,", dato.humedad)
+		customPopup.replace("VVIEN_PLACEHOLDER", dato.viento)
 		//Añañdimos el html al popup con marker.bindPopup("<b>Hola!</b>")
+		marker.bindPopup(customPopup)
 		
 
 
