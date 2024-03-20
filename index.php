@@ -97,7 +97,7 @@ try{
 		//Creamos marcadores en el mapa
 		var marker = L.marker([dato.lat, dato.lon]).addTo(mymap);
 
-		var customPopup = "Temperatura: " +  dato.temperatura +  "ºC <br> Humedad: " + dato.humedad + "% <br> Velocidad del viento: " + dato.viento + "km/h <br>"
+		var customPopup =  "Fecha: " + dato.fecha +"<br> Temperatura: " +  dato.temperatura +  "ºC <br> Humedad: " + dato.humedad + "% <br> Velocidad del viento: " + dato.viento + "km/h <br> Descripcion: " + dato.descripcion +  "<br> URL: " +dato.url  
 
 		marker.bindPopup(customPopup)
 		
@@ -127,7 +127,7 @@ try{
 				success: function(response) {
 					var marker = L.marker([datos.lat, datos.lon]).addTo(mymap);
 
-					var customPopup = "Temperatura: " +  response['temperatura'] +  "ºC <br> Humedad: " + response['humedad'] + "% <br> Velocidad del viento: " + response['viento'] + "km/h <br>"
+					var customPopup = "Fecha: " + response['fecha'] + "<br> Temperatura: " +  response['temperatura'] +  "ºC <br> Humedad: " + response['humedad'] + "% <br> Velocidad del viento: " + response['viento'] + "km/h <br> Descripcion: " + response['descripcion']+ "<br> URL: " + response['url'] 
 
 					marker.bindPopup(customPopup)
 				},
