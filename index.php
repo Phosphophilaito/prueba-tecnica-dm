@@ -97,11 +97,8 @@ try{
 		//Creamos marcadores en el mapa
 		var marker = L.marker([dato.lat, dato.lon]).addTo(mymap);
 
-		var customPopup = "Temperatura: TEMP_PLACEHOLDER ºC <br> Humedad: HUM_PLACEHOLDER % <br> Velocidad del viento: VVIEN_PLACEHOLDER km/h <br>"
-		customPopup.replace("TEMP_PLACEHOLDER", dato.temperatura)
-		customPopup.replace("HUM_PLACEHOLDER,", dato.humedad)
-		customPopup.replace("VVIEN_PLACEHOLDER", dato.viento)
-		//Añañdimos el html al popup con marker.bindPopup("<b>Hola!</b>")
+		var customPopup = "Temperatura: " +  dato.temperatura +  "ºC <br> Humedad: " + dato.humedad + "% <br> Velocidad del viento: " + dato.viento + "km/h <br>"
+
 		marker.bindPopup(customPopup)
 		
 
@@ -128,7 +125,11 @@ try{
 				url: "http://localhost:5000/guardar-clima", // Asegúrate de que la URL es accesible y correcta
 				data: datos,
 				success: function(response) {
-					// Aquí puedes manejar la respuesta de tu script
+					var marker = L.marker([datos.lat, datos.lon]).addTo(mymap);
+
+					var customPopup = "Temperatura: " +  response['temperatura'] +  "ºC <br> Humedad: " + response['humedad'] + "% <br> Velocidad del viento: " + response['viento'] + "km/h <br>"
+
+					marker.bindPopup(customPopup)
 				},
 				error: function(error) {
 					// Manejar errores
