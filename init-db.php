@@ -7,7 +7,7 @@ $dbname = $config['db_name'];
 $password = $config['password'];
 $username = $config['username'];
 // Crear conexión
-$conn = new mysqli($host, $username, $password, port:3306);
+$conn = new mysqli($host, $username, $password, port:$port);
 
 // Verificar conexión
 if ($conn->connect_error) {

@@ -6,6 +6,7 @@ $host = $config['host'];
 $dbname = $config['db_name'];
 $password = $config['password'];
 $user = $config['username'];
+$port = $config['port'];
 
 //Conectate a la db!
 
