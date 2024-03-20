@@ -1,0 +1,8 @@
+id,fecha,lat,lon,temperatura,humedad,viento,descripcion,url
+1,2024-03-20,40.43275732111892,-3.678359985351563,21.44,43,3.09,cielo claro,http://api.openweathermap.org/data/2.5/weather?lat=40.43275732111892&lon=-3.678359985351563&appid=fe18e4ee1578782f0e81d5783229a1fb&units=metric&lang=es
+2,2024-03-20,40.414854095923786,-3.6835098266601562,21.72,42,3.09,algo de nubes,http://api.openweathermap.org/data/2.5/weather?lat=40.414854095923786&lon=-3.6835098266601562&appid=fe18e4ee1578782f0e81d5783229a1fb&units=metric&lang=es
+3,2024-03-20,40.434325259856514,-3.724021911621094,21.99,42,3.09,algo de nubes,http://api.openweathermap.org/data/2.5/weather?lat=40.434325259856514&lon=-3.724021911621094&appid=fe18e4ee1578782f0e81d5783229a1fb&units=metric&lang=es
+4,2024-03-20,40.4168145353588,-3.725395202636719,22.14,42,3.09,algo de nubes,http://api.openweathermap.org/data/2.5/weather?lat=40.4168145353588&lon=-3.725395202636719&appid=fe18e4ee1578782f0e81d5783229a1fb&units=metric&lang=es
+5,2024-03-20,40.38557140520096,-3.735008239746094,21.97,42,3.09,algo de nubes,http://api.openweathermap.org/data/2.5/weather?lat=40.38557140520096&lon=-3.735008239746094&appid=fe18e4ee1578782f0e81d5783229a1fb&units=metric&lang=es
+6,2024-03-20,40.447781896962915,-3.649520874023438,21.37,41,3.09,algo de nubes,http://api.openweathermap.org/data/2.5/weather?lat=40.447781896962915&lon=-3.649520874023438&appid=fe18e4ee1578782f0e81d5783229a1fb&units=metric&lang=es
+7,2024-03-20,40.45927669575231,-3.6984443664550786,21.29,41,3.09,algo de nubes,http://api.openweathermap.org/data/2.5/weather?lat=40.45927669575231&lon=-3.6984443664550786&appid=fe18e4ee1578782f0e81d5783229a1fb&units=metric&lang=es
